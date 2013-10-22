@@ -13,6 +13,10 @@ class User
 	field :expires_at, type: Time
 
 	before_save :encrypt_password
+	# before_update
+	# before_create
+	# before_destroy
+	# before_validation
 
 	private
 

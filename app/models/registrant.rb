@@ -16,7 +16,6 @@ end
 # r = Registrant.new(seeded values)
 # r.save
 
-
 # alias rkon='bundle exec rails console'
 # reload!
 

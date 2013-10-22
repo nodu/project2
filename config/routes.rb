@@ -13,7 +13,7 @@ Project2::Application.routes.draw do
 	# Password reset
 	get 'reset/:code'=> 'password#edit'
 	put 'reset/:code'=> 'password#update'
-	patch 'reset/:code'=> 'password#update'
+	patch 'reset/:code'=> 'password#update' # only updates the part altered
 
 
 

@@ -7,13 +7,11 @@ class SiteController < ApplicationController
 
 		@user = User.first
 		@users = User.all.entries
+	end
 
-		def privacy
-		end
+	def privacy
+	end
 
-		def terms
-		end
-
-
+	def terms
 	end
 end
