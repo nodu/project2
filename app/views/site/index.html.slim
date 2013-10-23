@@ -1,18 +1,19 @@
-<!-- p.Class#id Hi!, #{@user.name} -->
+/ p.Class#id Hi!, #{@user.name}
 .row
 	.col-lg-6.col-lg-offset-3
-		<!-- h1 Hi ... -->
+		/ h1 Hi ...
 		table.table.table-bordered.table-striped
 			caption Our Users!
 			thead
+				tr
 					th Name
 					th Email
 					th Created
 			tbody
 				- @users.each do |user|
-				  <!-- li #{user.name} -->
+				  / li #{user.name}
 				  tr
 				  	td #{user.name}
 				  	td #{user.email}
 				  	td #{user.created_at}
-<!-- - @users.each {|name| puts name} -->
+/ - @users.each {|name| puts name}
