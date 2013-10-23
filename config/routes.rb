@@ -1,5 +1,21 @@
 Project2::Application.routes.draw do
 
+	# resources :registrants
+
+	
+	get 'registrants' => 'registrants#index' # list all
+	# get 'rudefolks' => 'registrants#index' as: :registrants # list all
+
+
+
+
+	get 'registrants/:id' => 'registrants#show' # show one
+	put 'registrants/:id' => 'registrants#update' # edit a current one
+	post 'registrants' => 'registrants#create' # create a new one
+	patch 'registrants/:id' => 'registrants#update' # edit part of one
+	delete 'registrants/:id' => 'registrants#destroy' # edit part of one
+
+
 	#Sign in/out
 	get    'login' => 'session#new'
 	post   'login' => 'session#create'

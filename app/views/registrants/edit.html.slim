@@ -1,0 +1,9 @@
+/ = when you need to output 
+/ # - when you don't need an output
+
+h1 Add a new registrant
+= @registrant.inspect
+.container
+	.row
+		.col-lg-6.col-lg-offset-3
+		== render partial: 'form'

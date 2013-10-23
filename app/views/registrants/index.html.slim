@@ -1,0 +1,21 @@
+.container
+	.row
+		.col-lg-8
+			/ # .pull-right = link_to "Add a registrant", new_registrant_url
+			h1 Registrants
+			p
+				a href="/registrants"  Hard-coded registrants url
+			p 
+				a href="#{registrants_url}"  dynamic registrants url
+				/ if changed then the dynamic will change, but the hardcoded will sill be /registrants
+	.row
+		.col-lg-8
+			table.table.table-bordered
+				thread
+					- @registrants.each do |registrant|
+						tr
+							td = registrant.id
+							/ # td = link_to registrant.email, registrant_path(registrant.id)
+							td = registrant.expires_at
+							/ # td = link_to "Edit", edit_registrant_url(registrant.id)
+
