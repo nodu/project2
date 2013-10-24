@@ -7,8 +7,9 @@ Project2::Application.routes.draw do
 	get    'logout' => 'session#destroy'
 
 	# Registration
-	get  'register' => 'registration#new', as: :register
-	post 'register' => 'registration#create'
+	get  'register/:code' => 'registration#new', as: :register
+	post 'register/:code' => 'registration#create'
+	get 'register'  => 'registration#index'
 
 	# Password reset
 	get 'reset/:code'=> 'password#edit', as: :reset
