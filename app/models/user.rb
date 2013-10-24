@@ -17,6 +17,10 @@ class User
 
 	before_save :encrypt_password
 
+	validates :email, presence: true
+	validates :email, uniqueness: {case_sensitive: false}
+	validates :password, confirmation: true
+
 	# before_update
 	# before_create
 	# before_destroy

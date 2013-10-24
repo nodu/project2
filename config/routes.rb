@@ -3,7 +3,7 @@ Project2::Application.routes.draw do
 	#Sign in/out
 	get    'login' => 'session#new', as: :login
 	post   'login' => 'session#create'
-	delete 'logout' => 'session#destroy',  as: :logout #delete goes to destry (just remember it)
+	delete 'logout' => 'session#destroy',  as: :logout #delete goes to destroy (just remember it)
 	get    'logout' => 'session#destroy'
 
 	# Registration
