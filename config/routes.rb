@@ -1,5 +1,6 @@
 Project2::Application.routes.draw do
 
+	
 	#Sign in/out
 	get    'login' => 'session#new'
 	post   'login' => 'session#create'
