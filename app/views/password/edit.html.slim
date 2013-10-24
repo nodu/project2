@@ -1,3 +1,21 @@
-h1 edit your password
-
-p the code is #{@code}
+.row
+	.col-lg-4.col-lg-offset-4
+		h1 Please choose a new password
+		.row
+			.col-lg-9
+				= form_for :user, url: reset_url, method: :put, html: {role: "form"} do |f|
+					.form-group
+					  = f.label :password
+					  / label for="user_password" Password
+					  = f.password_field :password, class: "form-control", placeholder: "Password"
+					  / input.form-control id="user_password" name="user[password]" type="password" value="" placeholder="Password"
+					.form-group
+					  = f.label :password_confirmation
+					  / label for="user_password" Password
+					  = f.password_field :password_confirmation, class: "form-control", placeholder: "Type it again"
+					  / input.form-control id="user_password" name="user[password]" type="password" value="" placeholder="Password"
+					.form-group
+						= token_tag form_authenticity_token 
+						=> f.submit "Save", class: "btn btn-success"
+						/ input.btn.btn-success type="submit" value="Sign in"
+						button.btn.btn-warning Show Passwords

@@ -1,16 +1,20 @@
 .row
-	.coll-lg-4.col-lg-offset-4
-	h1 Please sign in
-	.row
-		.col-lg-9
-			form role="form"
-				.form-group
-					label for="user_email" Email
-					input.form-control id="user_email" name="user[email]" type="text" value="" placeholder="Email Address"
-				.form-group
-				  label for="user_password" Password
-				  input.form-control id="user_password" name="user[password]" type="password" value="" placeholder="Password"
-				.form-group
-					= token_tag form_authinticity_token 
-					input.btn.btn-success type="submit" value="Sign in"
-					button.btn.btn-warning Show Password
+	.col-lg-4.col-lg-offset-4
+		h1 Please sign in
+		.row
+			.col-lg-9
+				= form_for :user, url: login_url, method: "POST", html: {role: "form"} do |f|
+					.form-group
+						= f.label :email
+						= f.text_field :email, class: "form-control", placeholder: "Email address"
+						/ input.form-control id="user_email" name="user[email]" type="text" value="" placeholder="Email Address"
+					.form-group
+					  = f.label :password
+					  / label for="user_password" Password
+					  = f.password_field :password, class: "form-control", placeholder: "Password"
+					  / input.form-control id="user_password" name="user[password]" type="password" value="" placeholder="Password"
+					.form-group
+						= token_tag form_authenticity_token 
+						=> f.submit "Sign in", class: "btn btn-success"
+						/ input.btn.btn-success type="submit" value="Sign in"
+						button.btn.btn-warning Show Password
