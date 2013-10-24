@@ -14,11 +14,11 @@ class SessionController < ApplicationController
 		   				@user.expires_at = Time.now + 1.day
 		   				@user.save
 
+		   				UserMailer.reset_email(@user, request).deliver
+
 		   				# SEND PASSWORD RESET EMAIL
 		   				flash.now.notice = "An email with instructions for reseting your password has been sent to you."
 		   				render :new
-
-		   			
 		   			
 		   		else
 
@@ -29,10 +29,13 @@ class SessionController < ApplicationController
 		   			@registrant.expires_at = Time.now + 1.day
 		   			@registrant.save
 
+		   			UserMailer.registration_email(@registrant, request).deliver
+
 		   			# SEND REGISTRATION EMAIL
-		   			flash.now.notice = "An email with instructions for completing your registration has been sent to you."
+		   			flash.now[:notice] = "An email with instructions for completing your registration has been sent to you."
 		   			render :new
 		   		end
+		   	else
 		   		# attempt to authenticate -- successful?
 		   		@user = User.find_by(email: params[:user][:email])
 
@@ -42,6 +45,7 @@ class SessionController < ApplicationController
 		   		else
 		   			render :new, error: "Unable to sign you in.  Please try again."
 		   		end
+		   	end
 
 		   	end
 
@@ -49,5 +53,7 @@ class SessionController < ApplicationController
 		   		session[:user_id] = nil
 		   		redirect_to login_url, notice: "You've logged out."
 		   	end
-		   end
 		 end
+
+
+
