@@ -1,4 +1,7 @@
 class SiteController < ApplicationController
+	before_action :is_authenticated?, only: [ :index] 
+	# except: [ :privacy, :terms]
+
 	def index
 		# redirect_to "http://google.com"
 		# render text: "Hello!"

@@ -11,7 +11,10 @@ html lang="en"
     = stylesheet_link_tag "application", media: "all"
   body
     #wrap
-      == render partial: 'layouts/navigation'
+      - if current_user
+        == render partial: 'layouts/navigation'
+      - else
+        == render partial: 'layouts/header'
 
       .container
         .page
@@ -26,5 +29,4 @@ html lang="en"
           ' &middot; &copy; 2013 Project2 
           / if using ' it will add a space at end of ' and => preserves the whitespace on the other side
 
-    = javascript_include_tag 
-    / 'application'
+    = javascript_include_tag 'application'
