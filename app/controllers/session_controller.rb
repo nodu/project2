@@ -6,21 +6,48 @@ class SessionController < ApplicationController
 	end
 
 	def create
-		# render json: params
-		@user = User.find_by(email: params[:user][:email])
-		# render json: { authenticated: @user.authenticate(params[:user][:password])}
-		
-		if @user && @user.authenticate(params[:user][:password])
-			session[:user_id] = @user.id
-			redirect_to root_url
-		else
-			render :new, error: "Unable to sign you in.  Please try again."
-		end
-		# render json: {authenticated: "Hi!"}
-	end
+		   #is the pw blank?
+		   	#yes
+		   	if params[:user][:password].blank?
+		   			if @user = User.find_by(email: params[:user][:email])
+		   				@user.code = SecureRandom.urlsafe_base64
+		   				@user.expires_at = Time.now + 1.day
+		   				@user.save
 
-	def destroy
-		session[:user_id] = nil
-		redirect_to login_url, notice: "You've logged out."
-	end
-end
+		   				# SEND PASSWORD RESET EMAIL
+		   				flash.now.notice = "An email with instructions for reseting your password has been sent to you."
+		   				render :new
+
+		   			
+		   			
+		   		else
+
+		   			#no -- send registration email and render :new with message
+		   			@registrant = Registrant.new
+		   			@registrant.id = SecureRandom.urlsafe_base64
+		   			@registrant.email = params[:user][:email]
+		   			@registrant.expires_at = Time.now + 1.day
+		   			@registrant.save
+
+		   			# SEND REGISTRATION EMAIL
+		   			flash.now.notice = "An email with instructions for completing your registration has been sent to you."
+		   			render :new
+		   		end
+		   		# attempt to authenticate -- successful?
+		   		@user = User.find_by(email: params[:user][:email])
+
+		   		if @user && @user.authenticate(params[:user][:password])
+		   			session[:user_id] = @user.id
+		   			redirect_to root_url
+		   		else
+		   			render :new, error: "Unable to sign you in.  Please try again."
+		   		end
+
+		   	end
+
+		   	def destroy
+		   		session[:user_id] = nil
+		   		redirect_to login_url, notice: "You've logged out."
+		   	end
+		   end
+		 end
