@@ -4,11 +4,16 @@ class User
 
 	attr_accessor :password, :password_confirmation
 
+	embeds_many :schools
+
 	field :id, type: String
 
 	field :name, type: String
+	field :address, type: Array
 	field :email, type: String
-
+	field :phone, type: String
+	field :objective, type: String
+	
 	field :salt, type: String
 	field :fish, type: String
 
