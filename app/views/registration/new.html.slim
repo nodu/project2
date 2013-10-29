@@ -12,12 +12,12 @@
           .form-group
             = f.label :password
             / label for="user_password" Password
-            = f.password_field :password, class: "form-control password-field", placeholder: "Password"
+            = f.password_field :password, class: "form-control showable-password", placeholder: "Password"
             / input.form-control id="user_password" name="user[password]" type="password" value="" placeholder="Password"
           .form-group
             = f.label :password_confirmation
             / label for="user_password" Password
-            = f.password_field :password_confirmation, class: "form-control password-field", placeholder: "Type it again"
+            = f.password_field :password_confirmation, class: "form-control showable-password", placeholder: "Type it again"
             / input.form-control id="user_password" name="user[password]" type="password" value="" placeholder="Password"
           .form-group
             = token_tag form_authenticity_token 
