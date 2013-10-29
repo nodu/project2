@@ -9,6 +9,8 @@ html lang="en"
     = csrf_meta_tags 
 
     = stylesheet_link_tag "application", media: "all"
+    = javascript_include_tag 'application'
+    
   body
     #wrap
       - if current_user
@@ -29,4 +31,4 @@ html lang="en"
           ' &middot; &copy; 2013 Project2 
           / if using ' it will add a space at end of ' and => preserves the whitespace on the other side
 
-    = javascript_include_tag 'application'
+    
