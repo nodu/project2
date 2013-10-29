@@ -23,7 +23,7 @@
 						.form-group
 						  = f.label :password, id: "password-label"
 						  / label for="user_password" Password
-						  = f.password_field :password, class: "form-control", placeholder: "Password"
+						  = f.password_field :password, class: "form-control password-field", placeholder: "Password"
 						  / input.form-control id="user_password" name="user[password]" type="password" value="" placeholder="Password"
 						.form-group
 							/ # = token_tag form_authenticity_token 
@@ -34,38 +34,40 @@
 javascript: 
 	$(funciton(){
 		$('.login-options li a').on('click', function(e){
-			var id = e.currentTarget.id;
+			var elem = $(this)[0];
+			var id = elem.id;
 
 			$('.login-options li').removeClass('active')
-			$($(this)[0].parentNode).addClass('active');
+			$(elem.parentNode).addClass('active');
 
 			switch (id) {
 			case 'register-pill':
 				console.log('show the registration form');
 				$('legend').html('Please enter your email address');
+				$('#password-label').hide();
 				$('#user_password').hide();
 				$('#show-password-button').hide();
-				$('#password-label').hide();
         $('#submit-button').val('Register');
 				break;
 			case 'reset-pill':
 				console.log('show the password reset form');
 				$('legend').html('Please enter your email address');
+				$('#password-label').hide();
 				$('#user_password').hide()
 				$('#show-password-button').hide();
-				$('#password-label').hide();
  				$('#submit-button').val('Reset');
 				break;
 			default:
 				console.log('show the login form');
 				$('legend').html('Please sign in');
+				$('#password-label').show();
 				$('#user_password').show()
 				$('#show-password-button').show();
-				$('#password-label').show();
  				$('#submit-button').val('Sign in');
 			}
 
 			e.preventDefault();
 			})
 		});
+		
 == render partial: 'layouts/password'
