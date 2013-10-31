@@ -32,15 +32,12 @@
 							button#show-password-button.btn.btn-warning data-state="show" Show Password
 
 javascript: 
-	$(funciton(){
-		$('.login-options li a').on('click', function(e){
-			var elem = $(this)[0];
-			var id = elem.id;
-
-			$('.login-options li').removeClass('active')
-			$(elem.parentNode).addClass('active');
-
-			switch (id) {
+	$(function(){
+		 $('.login-options').children('li').children('a').on('click', function(e) {
+      $('.login-options').find('li').removeClass('active');
+      $(this).parent().addClass('active');
+      
+    switch ($(this).id) {
 			case 'register-pill':
 				console.log('show the registration form');
 				$('legend').html('Please enter your email address');
@@ -67,7 +64,7 @@ javascript:
 			}
 
 			e.preventDefault();
-			})
 		});
+	});
 		
 == render partial: 'layouts/password'
