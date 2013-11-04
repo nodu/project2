@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs 
-//= require_tree .
+//= bootstrap
+//= require jquery.noty
+//= require ./themes/default
+//= require ./layouts/top
