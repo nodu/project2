@@ -4,6 +4,8 @@ class User
 
 	attr_accessor :password, :password_confirmation
 
+	has_many :gift
+	
 	field :id, type: String
 
 	field :name, type: String
