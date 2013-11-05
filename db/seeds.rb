@@ -21,56 +21,56 @@ Registrant.create([
 
 			])
 
-id1 = SecureRandom.urlsafe_base64
-id3 = SecureRandom.urlsafe_base64
-id2 = SecureRandom.urlsafe_base64
-User.create([
+users = User.create([
 	{
-		id: id1,
+		id: SecureRandom.urlsafe_base64,
 		name: "cab",
 		email: "cab@me.com",
 		password: "123",
 		password_confirmation: "123"
 		},
 		{
-			id: id2,
+			id: SecureRandom.urlsafe_base64,
 			name: "name",
 			email: "name@me.com",
 			password: "123",
 			password_confirmation: "123"
 			},
 			{
-				id: id3,
+				id: SecureRandom.urlsafe_base64,
 				name: "cad",
 				email: "cad@me.com",
 				password: "123",
 				password_confirmation: "123"
-				},
+				}
 
 
 				])
 
 Gift.create([
 	{
+		id: SecureRandom.urlsafe_base64,
 		title: "Pen Set",
 		description: "Pen set I got, but don't want. It writes, I think.",
 		category: "stationary",
 		picture: "/path/to/pen_img.jpg",
-		user_id: id1
+		user: users[0]
 		},
 		{
+		id: SecureRandom.urlsafe_base64,
 		title: "Clown Mask",
 		description: "Fucking creepy clown mask, who the hell gives this as a gift?!",
 		category: "other",
 		picture: "/path/to/clown_img.jpg",
-		user_id: id2
+		user: users[1]
 		},
 		{
+		id: SecureRandom.urlsafe_base64,
 		title: "Flower print dinnerware",
 		description: "Dinnerware with pink flowers.",
 		category: "kitchen",
 		picture: "/path/to/dinnerware_img.jpg",
-		user_id: id3
+		user: users[2]
 		}
 
 				])

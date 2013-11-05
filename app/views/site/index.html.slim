@@ -9,6 +9,7 @@
 					th Name
 					th Email
 					th Created
+					th Gift[0]
 			tbody
 				- @users.each do |user|
 				  / li #{user.name}
@@ -16,4 +17,19 @@
 				  	td #{user.name}
 				  	td #{user.email}
 				  	td #{user.created_at}
+				  	- if user.gift.empty?
+				  		td NO GIFT
+				  	- else
+				  	  / td #{user.gift[0].title}
+				  	  td
+				  	    = link_to "#{user.gift[0].title}", regift_url(user.gift[0].id)
+				  	
+
 / - @users.each {|name| puts name}
+
+  / - unless items.empty?
+  /       table
+  /         - for g in user.gift do
+  /           tr
+  /             td.name = item.name
+  /             td.price = item.price

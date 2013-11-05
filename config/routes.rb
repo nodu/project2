@@ -19,11 +19,9 @@ Project2::Application.routes.draw do
 	get 'privacy' => 'site#privacy'
 	get 'terms' => 'site#terms'  # routes to the pages, calling the controller and the action on that controller
 
-  
+  get 'regift/:id' =>  'regift#show', as: :regift
+
+
   root 'site#index'
 
 end
-
-
-
-# but we can't have people frustrated and not understand the issues

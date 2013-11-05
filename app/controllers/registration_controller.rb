@@ -12,6 +12,7 @@ class RegistrationController < ApplicationController
 		@registrant = Registrant.find_by(id: params[:code])
 
 		@user = User.new(user_params)
+		@user.id = SecureRandom.urlsafe_base64
 		@user.email = @registrant.email
 
 		if @user.save
