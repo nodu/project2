@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs 
-//= bootstrap
+//= require bootstrap
 //= require jquery.noty
 //= require ./themes/default
 //= require ./layouts/top

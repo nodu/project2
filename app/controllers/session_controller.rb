@@ -17,7 +17,7 @@ class SessionController < ApplicationController
 		   				UserMailer.reset_email(@user, request).deliver
 
 		   				# SEND PASSWORD RESET EMAIL
-		   				flash.now.notice = "An email with instructions for reseting your password has been sent to you."
+		   				flash.now[:notice] = "An email with instructions for completing your registration has been sent to you."
 		   				render :new
 		   			
 		   		else

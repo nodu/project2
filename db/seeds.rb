@@ -18,7 +18,7 @@ Registrant.create([
 				expires_at: Time.now + 4.hours
 			}
 
-])
+			])
 
 User.create([
 	{
@@ -44,4 +44,4 @@ User.create([
 				},
 
 
-	])
+				])

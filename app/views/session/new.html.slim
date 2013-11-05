@@ -37,7 +37,8 @@ javascript:
       $('.login-options').find('li').removeClass('active');
       $(this).parent().addClass('active');
       
-    switch ($(this).id) {
+      
+    switch ($(this)[0].id) {
 			case 'register-pill':
 				console.log('show the registration form');
 				$('legend').html('Please enter your email address');
