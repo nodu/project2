@@ -1,5 +1,6 @@
 Registrant.destroy_all
 User.destroy_all
+Gift.destroy_all
 
 Registrant.create([
 	{
