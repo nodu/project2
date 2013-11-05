@@ -57,11 +57,27 @@ Gift.create([
 		user: users[0]
 		},
 		{
+			id: SecureRandom.urlsafe_base64,
+		title: "Tea Set",
+		description: "English Tea set",
+		category: "kitchen",
+		picture: "/path/to/tea_img.jpg",
+		user: users[0]
+		},
+		{
 		id: SecureRandom.urlsafe_base64,
 		title: "Clown Mask",
 		description: "Fucking creepy clown mask, who the hell gives this as a gift?!",
 		category: "other",
 		picture: "/path/to/clown_img.jpg",
+		user: users[1]
+		},
+			{
+		id: SecureRandom.urlsafe_base64,
+		title: "Deer Head",
+		description: "I like shootin' but this dear head is evil.",
+		category: "other",
+		picture: "/path/to/deer_img.jpg",
 		user: users[1]
 		},
 		{
@@ -70,6 +86,14 @@ Gift.create([
 		description: "Dinnerware with pink flowers.",
 		category: "kitchen",
 		picture: "/path/to/dinnerware_img.jpg",
+		user: users[2]
+		},
+		{
+		id: SecureRandom.urlsafe_base64,
+		title: "Green Handbag",
+		description: "This handbag goes with none of my clothes, it's nice tho.",
+		category: "clothes",
+		picture: "/path/to/bag_img.jpg",
 		user: users[2]
 		}
 

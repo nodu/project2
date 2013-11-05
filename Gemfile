@@ -18,6 +18,9 @@ gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'bson_ext'
 gem 'mongoid', github: "mongoid/mongoid", ref: 'f91feef'
 
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
+
 group :development, :test do
 	gem 'launchy'
 	gem "better_errors"

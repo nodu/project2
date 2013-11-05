@@ -21,7 +21,7 @@ class RegistrationController < ApplicationController
 			session[:user_id] = @user.id
 			redirect_to root_url, notice: "Thank you for registering!"
 		else
-			flash.now[:error] = "Something when wrong. Please check your data dn try again."
+			flash.now[:error] = "Something when wrong. Please check your data and try again."
 			render :new
 		end
 	end

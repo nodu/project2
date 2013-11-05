@@ -9,7 +9,7 @@
 					th Name
 					th Email
 					th Created
-					th Gift[0]
+					th Gifts
 			tbody
 				- @users.each do |user|
 				  / li #{user.name}
@@ -22,7 +22,11 @@
 				  	- else
 				  	  / td #{user.gift[0].title}
 				  	  td
-				  	    = link_to "#{user.gift[0].title}", regift_url(user.gift[0].id)
+				  	    span
+				  	    -user.gift.each do |gift|
+				  	      = link_to "#{gift.title} ", regift_url(gift.id)
+
+				  	    / #{user.gift.try(:symbol)}
 				  	
 
 / - @users.each {|name| puts name}
