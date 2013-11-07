@@ -3,7 +3,11 @@
 	.col-lg-6.col-lg-offset-3
 		/ h1 Hi ...
 		table.table.table-bordered.table-striped
-			caption Our Users!
+			
+			caption 
+				span Our Users 
+				= current_user.name.capitalize
+
 			thead
 				tr
 					th Name
@@ -17,18 +21,20 @@
 				  	td #{user.name}
 				  	td #{user.email}
 				  	td #{user.created_at}
-				  	- if user.gift.empty?
+				  	- if user.gifts.empty?
 				  		td NO GIFT
 				  	- else
 				  	  / td #{user.gift[0].title}
 				  	  td
 				  	    span
-				  	    -user.gift.each do |gift|
-				  	      = link_to "#{gift.title} ", regift_url(gift.id)
+				  	    -user.gifts.each do |gift|
+				  	      = link_to "#{gift.title} ", gift_url(gift.id)
 
 				  	    / #{user.gift.try(:symbol)}
 				  	
 
+= link_to "Gift ", gifts_path, class: "btn btn-primary"
+= link_to "New Gift ", new_gift_path, class: "btn btn-primary"
 / - @users.each {|name| puts name}
 
   / - unless items.empty?

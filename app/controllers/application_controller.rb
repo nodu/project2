@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
 
   def is_authenticated?
   	redirect_to login_url unless current_user  
-  	
   end
 
 

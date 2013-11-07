@@ -1,10 +1,11 @@
 class User
 	include Mongoid::Document
 	include Mongoid::Timestamps
+	
 
 	attr_accessor :password, :password_confirmation
 
-	has_many :gift
+	has_many :gifts
 	
 	field :id, type: String
 

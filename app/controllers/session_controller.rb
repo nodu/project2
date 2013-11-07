@@ -24,7 +24,7 @@ class SessionController < ApplicationController
 
 		   			#no -- send registration email and render :new with message
 		   			@registrant = Registrant.new
-		   			@registrant.id = SecureRandom.urlsafe_base64
+		   			# @registrant.id = SecureRandom.urlsafe_base64
 		   			@registrant.email = params[:user][:email]
 		   			@registrant.expires_at = Time.now + 1.day
 		   			@registrant.save

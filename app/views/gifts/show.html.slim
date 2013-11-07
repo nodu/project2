@@ -1,0 +1,16 @@
+ul
+  li Title: #{@gift.title}
+  li Description: #{@gift.description}
+  li Category: #{@gift.category}
+  / li Picture: 
+  - if @gift.avatars.empty?
+    li NO Picure!
+  - else
+    / li Picture: #{@gift.avatars.first.image.url}  
+    li 
+      = image_tag @gift.avatars.first.image.thumb.url
+  / 
+  / li Picture: #{@gift.avatars.first.image.thumb.url}
+  / li Picture: #{@gift.avatars.first.image.tiny_thumb.url}   
+
+= link_to "Delete", gift_url(@gift.id), method: :delete, confirm: "Are you sure?", class: "btn btn-default"

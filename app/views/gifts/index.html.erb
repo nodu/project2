@@ -1,0 +1,19 @@
+<div class="gifts row">
+	<% @gifts.each do |gift| %>
+		<div class="gift col-lg-2">
+		  <div>
+		    <%= gift.category %>
+		  </div>
+
+		  <div>
+	      <% gift.avatars.each do |avatar| %>
+	        <%= image_tag avatar.image.tiny_thumb.url %>
+	        <%= link_to "Edit", edit_gift_path(gift), class: "btn btn-default" %>
+	        <%= link_to "Delete", gift_path(gift), method: :delete, confirm: "Are you sure?", class: "btn btn-default" %>
+	      <% end %>
+		  </div> 
+	  </div>
+	<% end %>
+</div>
+
+<%= link_to "New Gift", new_gift_path, class: "btn btn-primary" %>
