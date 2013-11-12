@@ -1,30 +1,51 @@
 <div class="gifts row">
+	<% if current_user %>
+	
 	<% @gifts.each do |gift| %>
-	<% if current_user && current_user.id != gift.user.id %>
+	<% if current_user.id != gift.user.id %>
+
 	<div class="gift col-lg-2">
-		<div>
-			<%= gift.title %>
-		</div>
+    <div>
+      <%= gift.title %>
+      <%= gift.user.name.capitalize %>
+    </div>
+    <div>
+      <% gift.avatars.each do |avatar| %>
+      <%= image_tag avatar.image.tiny_thumb.url %>
+      <%= link_to "Show me more!", gift_path(gift), class: "btn btn-primary" %>
+      <% end %>
+    </div> 
+  </div>
 
-		<div>
-			<% gift.avatars.each do |avatar| %>
-			<%= image_tag avatar.image.tiny_thumb.url %>
-			<%= link_to "Show me more!", gift_path(gift), class: "btn btn-primary" %>
-			<% if current_user %>
-			<%= link_to "Edit", edit_gift_path(gift), class: "btn btn-default" %>
-			<%= link_to "Delete", gift_path(gift), method: :delete, confirm: "Are you sure?", class: "btn btn-default" %>
-			<% end %>
-			<% end %>
-
-		</div> 
-	</div>
 	<% end %>
 	<% end %>
+	<% end %>
+
+	
+
+
+	<% if !current_user %>
+
+	<% @gifts.each do |gift| %>
+    <div class="gift col-lg-2">
+      <div>
+        <%= gift.title %>
+        <%= gift.user.name.capitalize %>
+      </div>
+      <div>
+        <% gift.avatars.each do |avatar| %>
+        <%= image_tag avatar.image.tiny_thumb.url %>
+        <%= link_to "Show me more!", gift_path(gift), class: "btn btn-primary" %>
+        <% end %>
+      </div> 
+    </div>
+	<% end %>
+	<% end %>
+
+
 </div>
 
-<% if current_user%>
-<%= link_to "New Gift", new_gift_path, class: "btn btn-primary" %>
-<% end %>
+
 
 <!-- 
 p = current_user.id
