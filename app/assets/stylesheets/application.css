@@ -25,6 +25,10 @@ h2, legend {
   color: #5cb85c;
   border-bottom: 1px solid #5cb85c;
 }
+.gift {
+  border: 1px solid black;
+  margin: 5px;
+}
 /* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;

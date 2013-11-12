@@ -7,8 +7,8 @@ class Avatar
 	belongs_to :gift
 
 	field :id 
-	field :title, type: String
-	field :description, type: String
+	# field :title, type: String
+	# field :description, type: String
 
 	mount_uploader :image, AvatarUploader
 

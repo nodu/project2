@@ -48,7 +48,7 @@ users = User.create([
 
 				])
 
-Gift.create([
+gifts = Gift.create([
 	{
 		# id: SecureRandom.urlsafe_base64,
 		title: "Pen Set",
@@ -90,6 +90,43 @@ Gift.create([
 		description: "This handbag goes with none of my clothes, it's nice tho.",
 		category: "clothes",
 		user: users[2]
+		},
+		{
+		title: "Veggie Brush",
+		description: "Here is a veggie brush.",
+		category: "kitchen",
+		user: users[2]
 		}
 
+
 				])
+Avatar.create([
+	{
+		image: File.open(File.join(Rails.root, '/public/uploads/avatar/image/528042169d6dec8ddc00001d/pen-set.jpg')),
+		gift: gifts[0]
+	},
+	{
+		image: File.open(File.join(Rails.root, '/public/uploads/avatar/image/528042279d6dec2bb5000021/tea-set.jpg')),
+		gift: gifts[1]
+	},
+	{
+		image: File.open(File.join(Rails.root, '/public/uploads/avatar/image/5280409f9d6deca8f900000d/clown-mask.jpeg')),
+		gift: gifts[2]
+	},
+	{
+		image: File.open(File.join(Rails.root, '/public/uploads/avatar/image/528040b69d6dec6929000011/deerhead.jpg')),
+		gift: gifts[3]
+	},
+	{
+		image: File.open(File.join(Rails.root, '/public/uploads/avatar/image/528040dd9d6dec8057000015/flower-print-plate.jpeg')),
+		gift: gifts[4]
+	},
+	{
+		image: File.open(File.join(Rails.root, '/public/uploads/avatar/image/5280420a9d6dec4623000019/green-handbag.jpeg')),
+		gift: gifts[5]
+	},
+	{
+		image: File.open(File.join(Rails.root, '/public/uploads/avatar/image/528042359d6dec9e9b000025/veggie-brush.jpg')),
+		gift: gifts[6]
+	}
+	])

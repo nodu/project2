@@ -1,37 +1,54 @@
-/ p.Class#id Hi!, #{@user.name}
-.row
-	.col-lg-6.col-lg-offset-3
-		/ h1 Hi ...
-		table.table.table-bordered.table-striped
-			
-			caption 
-				span Our Users 
-				= current_user.name.capitalize
+/ / p.Class#id Hi!, #{@user.name}
+/ .row
+/   .col-lg-6.col-lg-offset-3
+/     / h1 Hi ...
+/     table.table.table-bordered.table-striped
+      
+/       caption 
+/         span Our Users 
+/         = current_user.name.capitalize
 
-			thead
-				tr
-					th Name
-					th Email
-					th Created
-					th Gifts
-			tbody
-				- @users.each do |user|
-				  / li #{user.name}
-				  tr
-				  	td #{user.name}
-				  	td #{user.email}
-				  	td #{user.created_at}
-				  	- if user.gifts.empty?
-				  		td NO GIFT
-				  	- else
-				  	  / td #{user.gift[0].title}
-				  	  td
-				  	    span
-				  	    -user.gifts.each do |gift|
-				  	      = link_to "#{gift.title} ", gift_url(gift.id)
+/       thead
+/         tr
+/           th Name
+/           th Email
+/           th Created
+/           th Gifts
+/       tbody
+        / # - @users.each do |user|
+          / li #{user.name}
+          / tr
+            / td #{user.name}
+            / td #{user.email}
+            / td #{user.created_at}
+            / - if user.gifts.empty?
+            /   td NO GIFT
+            / - else
+            /   td #{user.gift[0].title}
+              / td
+              /   span
+              /   -user.gifts.each do |gift|
+              /     = link_to "#{gift.title} ", gift_url(gift.id)
 
-				  	    / #{user.gift.try(:symbol)}
-				  	
+                / #{user.gift.try(:symbol)}
+ul
+  li #{current_user.name}
+  li #{current_user.email}
+  li #{current_user.created_at}
+  - current_user.gifts.each do |gift|
+    div.gift
+      = image_tag gift.avatars[0].image.tiny_thumb.url
+      p = gift.title
+
+
+/ li 
+   / 11:       = image_tag @gift.avatars.first.image.thumb.url
+
+
+
+  / # - if (current_user && current_user.gifts[0].title)
+    / li #{gift[0].title}
+          
 
 = link_to "Gift ", gifts_path, class: "btn btn-primary"
 = link_to "New Gift ", new_gift_path, class: "btn btn-primary"

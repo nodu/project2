@@ -26,6 +26,7 @@ Project2::Application.routes.draw do
   
   resources :gifts
 
-  root 'site#index'
+  get 'home' => 'site#index', as: :home
+  root 'gifts#index'
 
 end
