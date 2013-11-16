@@ -11,8 +11,8 @@
         li
           = link_to "New Gift", new_gift_path, class: "btn btn-primary"
         li
-          = link_to "Hi #{current_user.name}", user_path(current_user.id)
+          = link_to "Hi #{current_user.name}", user_path(current_user)
         li
-          = link_to "Messages", user_path(current_user.id)
+          = link_to "Messages", user_path(current_user)
         li
           = link_to "Sign out", logout_url, method: :delete, class: "logout-link"

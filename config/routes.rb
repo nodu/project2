@@ -1,5 +1,6 @@
 Project2::Application.routes.draw do
 
+  # get "users/show"
   # get "messages/new"
   # get "messages/show"
   # get "gifts/new"
@@ -33,7 +34,7 @@ Project2::Application.routes.draw do
   resources :users
 
 
-  get 'home' => 'site#index', as: :home
+  # get 'home' => 'site#index', as: :home
   root 'gifts#index'
 
 end

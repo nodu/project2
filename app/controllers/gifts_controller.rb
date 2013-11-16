@@ -43,19 +43,20 @@ class GiftsController < ApplicationController
   def destroy
     @gift = Gift.find_by(id: params[:id])
     @gift.destroy
-    redirect_to gifts_url
+    flash.now[:error] = "Gift Deleted!"
+    redirect_to user_path(@gift.user)
   end
 
   def update
     @gift = Gift.find_by(id: params[:id])
     @gift.update_attributes(gift_params)
-    redirect_to gifts_url(@gift) 
+    redirect_to user_path(@gift.user)
   end
 
   def create
   	@gift = current_user.gifts.build(gift_params)
   	if @gift.save
-  		redirect_to gifts_path
+  		redirect_to user_path(@gift.user), notice: "Gift Created!"
   	else
   		puts @gift.errors.inspect
       render "new"

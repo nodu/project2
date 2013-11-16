@@ -7,13 +7,15 @@
 	<div class="gift col-lg-2">
     <div>
       <%= gift.title %>
-      <%= gift.user.name.capitalize %>
+    </div>
+    <div>
+      User: <%= link_to gift.user.name.capitalize, user_path(gift.user) %>
     </div>
     <div>
       <% gift.avatars.each do |avatar| %>
       <%= image_tag avatar.image.tiny_thumb.url %>
-      <%= link_to "Show me more!", gift_path(gift), class: "btn btn-primary" %>
       <% end %>
+      <%= link_to "Show me more!", gift_path(gift), class: "btn btn-primary" %>
     </div> 
   </div>
 
@@ -30,13 +32,15 @@
     <div class="gift col-lg-2">
       <div>
         <%= gift.title %>
-        <%= gift.user.name.capitalize %>
       </div>
+    <div>
+      User: <%= link_to gift.user.name.capitalize, user_path(gift.user) %>
+    </div>
       <div>
         <% gift.avatars.each do |avatar| %>
         <%= image_tag avatar.image.tiny_thumb.url %>
-        <%= link_to "Show me more!", gift_path(gift), class: "btn btn-primary" %>
         <% end %>
+        <%= link_to "Show me more!", gift_path(gift), class: "btn btn-primary" %>
       </div> 
     </div>
 	<% end %>

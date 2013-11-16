@@ -14,5 +14,5 @@ ul
   / li Picture: #{@gift.avatars.first.image.tiny_thumb.url}   
 / # = link_to "I want!", want_url(@gift.id), class: "btn btn-default"
 
-- if current_user && current_user.id == @gift.user.id
-  = link_to "Delete", gift_url(@gift.id), method: :delete, confirm: "Are you sure?", class: "btn btn-danger"
+/ # - if current_user && current_user.id == @gift.user.id
+  / # = link_to "Delete", gift_url(@gift.id), method: :delete, confirm: "Are you sure?", class: "btn btn-danger"

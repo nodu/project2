@@ -31,14 +31,19 @@
               /     = link_to "#{gift.title} ", gift_url(gift.id)
 
                 / #{user.gift.try(:symbol)}
-ul
-  li #{current_user.name}
-  li #{current_user.email}
-  li #{current_user.created_at}
-  - current_user.gifts.each do |gift|
-    div.gift
-      = image_tag gift.avatars[0].image.tiny_thumb.url
-      p = gift.title
+/ ul
+/   li #{current_user.name}
+/   li #{current_user.email}
+/   li #{current_user.created_at}
+/   - current_user.gifts.each do |gift|
+/     div.gift
+/       -if gift.avatars[0]
+/         = image_tag gift.avatars[0].image.tiny_thumb.url
+/       p = gift.title
+/       = link_to "Edit", edit_gift_url(gift.id), class: "btn btn-warning"
+/       = link_to "Delete", gift_url(gift.id), method: :delete, confirm: "Are you sure?", class: "btn btn-danger"
+      / # = link_to "Edit", edit_path(gift.id), class: "btn btn-warning"
+/ = link_to "New Gift", new_gift_path, class: "btn btn-primary"
 
 
 / li 
@@ -50,8 +55,7 @@ ul
     / li #{gift[0].title}
           
 
-= link_to "Gift ", gifts_path, class: "btn btn-primary"
-= link_to "New Gift ", new_gift_path, class: "btn btn-primary"
+/ # = link_to "Gift ", root_path, class: "btn btn-primary"
 / - @users.each {|name| puts name}
 
   / - unless items.empty?
