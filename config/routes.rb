@@ -1,6 +1,8 @@
 Project2::Application.routes.draw do
 
-  get "gifts/new"
+  # get "messages/new"
+  # get "messages/show"
+  # get "gifts/new"
 	#Sign in/out
 	get    'login' => 'session#new', as: :login
 	post   'login' => 'session#create'
@@ -24,7 +26,12 @@ Project2::Application.routes.draw do
   # get 'gifts' =>  'gift#index'
   # get '/gifts/:id/edit' => 'gift#edit'
   
-  resources :gifts
+  resources :gifts do
+    # resources :messages
+  end
+  
+  resources :users
+
 
   get 'home' => 'site#index', as: :home
   root 'gifts#index'

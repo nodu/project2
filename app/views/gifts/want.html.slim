@@ -1,0 +1,6 @@
+p Hey you want #{@gift.title}
+
+
+= form_for @message do |m|
+    = m.label :message
+    = m.text_field :message, placeholder: "Please type a message to the Regift's owner"

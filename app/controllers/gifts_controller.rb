@@ -1,8 +1,25 @@
 class GiftsController < ApplicationController
-	
+  # @@dilly = nil
+ def want
+   # @@dilly = request.referrer
+   # puts @@dilly 
+  
+  # if !current_user 
+    # redirect_to login_path
+  # end
+  if !current_user 
+    redirect_to login_url, notice: "Please login first!"
+  end
+  @gift = Gift.find_by(id: params[:id])
+
+  @message = @gift.messages.build
+ end
 
 	
   def index
+    # if current_user && @@dilly
+      # redirect_to @@dilly
+    # end
     @gifts = Gift.all
   end
   

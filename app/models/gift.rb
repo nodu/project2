@@ -4,7 +4,8 @@ class Gift
 	
 
 	belongs_to :user # Many to one relationship
-	has_many :avatars, dependent: :delete
+	has_many :avatars, dependent: :destroy
+	has_many :messages, dependent: :destroy
 	accepts_nested_attributes_for :avatars
 
  	field :id
@@ -20,4 +21,3 @@ class Gift
 	validates :category, presence: true
 	# validates :picture, presence: true
 end
-
