@@ -1,0 +1,19 @@
+<h1>Messages#new</h1>
+<p>Find me in app/views/messages/new.html.erb</p>
+
+<%= image_tag @gift.avatars[0].image.tiny_thumb.url %>
+
+<%= form_for @message, url: gift_messages_url do |m| %>
+
+  <h4>From <%= @message.user.name.capitalize %></h4> 
+  <br/>
+
+  <h4>To <%= @gift.user.name.capitalize %></h4> 
+  <br/>
+
+  <%= m.label :message %>  
+  <%= m.text_field :message %>  
+  <br/>
+
+  <%= m.submit %>
+<% end %>

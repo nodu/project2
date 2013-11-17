@@ -2,6 +2,7 @@ Registrant.destroy_all
 User.destroy_all
 Gift.destroy_all
 Avatar.destroy_all
+Message.destroy_all
 
 Registrant.create([
 	{
@@ -129,4 +130,35 @@ Avatar.create([
 		image: File.open(File.join(Rails.root, '/public/uploads/avatar/image/528042359d6dec9e9b000025/veggie-brush.jpg')),
 		gift: gifts[6]
 	}
+	])
+
+
+Message.create([
+{
+	message: "hey #{gifts[0].user.name}, I'm #{users[1].name} and I want your Pen Set, do you want any of my shit?",
+	gift: gifts[0],
+	sent_from: users[1].id,
+	user: users[0]
+},
+{
+	message: "Hi #{gifts[2].user.name}, I'm #{users[2].name} I want your Clown Mask",
+	gift: gifts[2],
+	sent_from: users[2].id,
+	user: users[1]
+},
+{
+	message: "hey #{gifts[6].user.name}, I'm #{users[1].name} and I want your veggie-brush, want to trade?",
+	gift: gifts[6],
+	sent_from: users[1].id,
+	user: users[0]
+},
+{
+	message: "Hi #{gifts[2].user.name}, I'm #{users[0].name} I want your Clown Mask",
+	gift: gifts[2],
+	sent_from: users[0].id,
+	user: users[2]
+}
+
+
+
 	])

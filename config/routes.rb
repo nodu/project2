@@ -1,5 +1,10 @@
 Project2::Application.routes.draw do
 
+  # get "messages/index"
+  # get "messages/show"
+  # get "messages/new"
+  # get "messages/create"
+  # get "messages/destroy"
   # get "users/show"
   # get "messages/new"
   # get "messages/show"
@@ -27,14 +32,18 @@ Project2::Application.routes.draw do
   # get 'gifts' =>  'gift#index'
   # get '/gifts/:id/edit' => 'gift#edit'
   
+  # Should probably remove the nested routes for gifts/messages, nesting them inside the user is better for listing all messages.
   resources :gifts do
-    # resources :messages
+    resources :messages, only: [:index, :show, :new, :create, :destroy]
   end
   
-  resources :users
+
+  resources :users, only: [:show] do
+    resources :messages, only: [:index, :show, :new, :create, :destroy]
+  end
 
 
-  # get 'home' => 'site#index', as: :home
+  get 'home' => 'site#index' # easter egg, Wizard People, Dear Reader quotes
   root 'gifts#index'
 
 end

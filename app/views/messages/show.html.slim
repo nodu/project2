@@ -1,0 +1,12 @@
+<h1>Messages#show</h1>
+<p>Find me in app/views/messages/show.html.erb</p>
+
+/ - if current_user && current_user.id == @message.user.id
+  / p Hi there
+h1 Message Sent To: #{@message.user.name}
+p = @message.message
+
+h1 Message From: #{@from_user.name}
+
+a
+  = link_to @from_user.name.capitalize, user_path(@from_user), class: "btn btn-primary"

@@ -6,6 +6,7 @@ class User
 	attr_accessor :password, :password_confirmation
 
 	has_many :gifts
+	has_many :messages
 	
 	field :id, type: String
 

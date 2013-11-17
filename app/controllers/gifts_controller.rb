@@ -55,6 +55,7 @@ class GiftsController < ApplicationController
 
   def create
   	@gift = current_user.gifts.build(gift_params)
+    
   	if @gift.save
   		redirect_to user_path(@gift.user), notice: "Gift Created!"
   	else

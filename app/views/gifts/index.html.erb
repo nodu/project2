@@ -16,6 +16,7 @@
       <%= image_tag avatar.image.tiny_thumb.url %>
       <% end %>
       <%= link_to "Show me more!", gift_path(gift), class: "btn btn-primary" %>
+      <%= link_to "I want!! :D", new_gift_message_path(gift.id), class: "btn btn-success" %>
     </div> 
   </div>
 

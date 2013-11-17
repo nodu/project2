@@ -1,0 +1,34 @@
+h1 All messages from message/index.html.slim
+h2 Inbox
+
+
+
+/ p #{@from_message}
+/ p #{@sent_message.message}
+- @messages.each do |m|
+  - if current_user && current_user.id == m.user_id
+    = link_to m.message, gift_message_path(m.user_id, m.id)
+    / p Message ID: #{m.id}
+    p m.sent_from.id #{m.sent_from}
+    p current_user.id #{current_user.id}
+    p m.user.id #{m.user_id}
+    = link_to "Delete Message", user_message_path(m.user_id, m.id), method: :delete, confirm: "Are you sure?", class: "btn btn-danger"
+    br
+
+h2 Sent
+- @messages.each do |m|
+  / p current_user.id  #{current_user.id}
+  / p m.sent_from #{m.sent_from}
+  - if current_user.id.to_s == m.sent_from.to_s
+    = link_to m.message, gift_message_path(m.user_id, m.id)
+    / p Message ID: #{m.id}
+    p m.sent_from.id #{m.sent_from}
+    p current_user.id #{current_user.id}
+    p m.user.id #{m.user_id}
+    = link_to "Cancel Request", user_message_path(m.user_id, m.id), method: :delete, confirm: "Are you sure?", class: "btn btn-danger"
+    br
+
+
+/ - @messages.each do |m|
+  / - if current_user && current_user.id == m.sent_from.id
+/ p should be two of these

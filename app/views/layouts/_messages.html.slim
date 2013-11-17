@@ -1,7 +1,7 @@
 - flash.each do |name, message|
   - if message.is_a?(String)
     - noty_type = (name == :notice ? "success" : "error")
-    - timeout = (name == :notice ? 4000 : 30000)
+    - timeout = (name == :notice ? 4000 : 15000)
     javascript:
       $(function() {
         noty({
